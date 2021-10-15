@@ -35,7 +35,6 @@ const MapComponent = ({ setCoordinates, setBounds, coordinates }) => {
         dragend: (e) => {
             setCoordinates({ lat: e.target.getCenter().lat, lng: e.target.getCenter().lng });
             setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
-            console.log("drag e ", e.target.getBounds()._northEast)
         },
     });
 
@@ -49,7 +48,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
         return (
             <div className="test">
 
-                <MapContainer center={[coordinates.lat, coordinates.lng]} zoom={13} onMoveEnd={(e) => { console.log(e) }} >
+                <MapContainer center={[coordinates.lat, coordinates.lng]} zoom={13}>
 
                     <MapComponent setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates} />
 
