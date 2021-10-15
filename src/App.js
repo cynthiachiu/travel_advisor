@@ -27,7 +27,6 @@ const App = () => {
     useEffect(() => {
         setIsLoading(true);
 
-        console.log("useeffect bounds ", bounds);
         if (bounds.sw && bounds.ne) {
             getPlacesData(type, bounds.sw, bounds.ne)
                 .then((data) => {

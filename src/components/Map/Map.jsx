@@ -1,5 +1,4 @@
 import React from 'react';
-// import GoogleMapReact from 'google-map-react';
 import { Paper, Typography } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
@@ -21,21 +20,9 @@ const SearchField = ({ setBounds }) => {
         autoComplete: true,
     });
 
-    // searchControl.addEventListener('keypress', (e) => {
-    //     if (e.key === 'Enter') {
-    //         console.log("enter")
-    //     }
-    // })
-
     const map = useMap();
     useEffect(() => {
         map.addControl(searchControl);
-        // map.on('geosearch/showlocation', (e) => {
-        //     console.log("show location ", e)
-        //     console.log("showlocation e ", e.target.getBounds()._northEast)
-        //     // setCoordinates({ lat: e.target.getCenter().lat, lng: e.target.getCenter().lng });
-        //     setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
-        // });
         return () => map.removeControl(searchControl);
     }, []);
 
@@ -44,31 +31,12 @@ const SearchField = ({ setBounds }) => {
 
 const MapComponent = ({ setCoordinates, setBounds, coordinates }) => {
 
-    const mapView = useMap();
-    // mapView.on('geosearch/showlocation', (e) => {
-    //     console.log("show location ", e)
-    //     console.log("showlocation e ", e.target.getBounds()._northEast)
-    //     setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
-    // });
-    // mapView.on('locationfound', (e) => {
-    //     console.log("locationfound e ", e.target.getBounds()._northEast)
-    //     setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
-    // })
-
     const map = useMapEvents({
         dragend: (e) => {
             setCoordinates({ lat: e.target.getCenter().lat, lng: e.target.getCenter().lng });
             setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
             console.log("drag e ", e.target.getBounds()._northEast)
         },
-        // locationfound: (e) => {
-        //     console.log("locationfound e ", e.target.getBounds()._northEast)
-        //     setBounds({ ne: e.target.getBounds()._northEast, sw: e.target.getBounds()._southWest });
-        // }
-        // moveend: (e) => {
-        //     console.log("moveend e: ", e.target.getBounds())
-        //     mapView.setView({ lat: e.target.getCenter().lat, lng: e.target.getCenter().lng })
-        // }
     });
 
     return null;
