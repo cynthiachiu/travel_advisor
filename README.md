@@ -75,7 +75,7 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed. You will also need to sign up with RapidAPI, and subscribe to the Travel Advisor API. An API key will be generated for you. Create a .env file from the .env.example provided. Take the API key generated for you and put it in the .env file.
 
 ## :checkered_flag: Starting ##
 
